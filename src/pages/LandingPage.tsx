@@ -1,38 +1,11 @@
+// src/pages/LaandingPage.tsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { useTheme } from "../contexts/ThemeContext";
+import GoogleLoginButton from "../components/GoogleLoginButton";
 
 const LandingPage: React.FC = () => {
-  const { isDark, toggleTheme } = useTheme(); // ← Agora deve funcionar
-
   return (
     <div className="landing-page">
-      {/* Botão de teste do tema */}
-      <div
-        style={{
-          position: "fixed",
-          top: "100px",
-          right: "20px",
-          zIndex: 1000,
-        }}
-      >
-        <button
-          onClick={toggleTheme}
-          className="theme-toggle-btn"
-          style={{
-            background: isDark ? "#333" : "#fff",
-            color: isDark ? "#fff" : "#333",
-            border: "2px solid",
-            padding: "10px",
-            borderRadius: "50%",
-            cursor: "pointer",
-          }}
-        >
-          {isDark ? "☀️" : "🌙"}
-        </button>
-      </div>
-
-      {/* Resto do código da landing page permanece igual */}
       <section className="hero-section">
         <div className="hero-content">
           <h1 className="hero-title">
@@ -45,11 +18,9 @@ const LandingPage: React.FC = () => {
           </p>
 
           <div className="hero-buttons">
-            <Link to="/dashboard" className="btn btn-primary btn-large">
-              🚀 Começar Agora
-            </Link>
+            <GoogleLoginButton />
             <Link to="/register" className="btn btn-secondary btn-large">
-              📝 Criar Conta
+              📝 Criar Conta com E-mail
             </Link>
           </div>
         </div>
